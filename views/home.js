@@ -12,8 +12,8 @@ module.exports = (state, prev, act) => html`
         </label>
         <button class=${css(styles.button)}
             onclick=${() => {
-                act('location:setLocation', { 
-                    location: '/' + state.room
+                act('location:set', { 
+                    href: '/' + state.room
                 });
             }}>go</button>
         <footer></footer>

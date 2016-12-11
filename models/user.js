@@ -6,22 +6,22 @@ module.exports = {
 		loggingIn: false
 	},
 	reducers: {
-		loggingIn: (data, state) => ({
+		loggingIn: (state, data) => ({
 			loggingIn: true
 		}),
-		loggedIn: (data, state) => ({
+		loggedIn: (state, data) => ({
 			loggingIn: false,
 			uid: data.uid,
 			name: data.name
 		}),
-		loggedOut: (data, state) => ({
+		loggedOut: (state, data) => ({
 			loggingIn: false,
 			uid: null,
 			name: null
 		}),
 	},
 	effects: {
-		login: (data, state, act, done) => {
+		login: (state, data, act, done) => {
 			console.info('logging in');
 			act('user:loggingIn', done);
 			const provider = new firebase.auth.GoogleAuthProvider();
@@ -30,7 +30,7 @@ module.exports = {
 			  console.error(err);
 			});
 		},
-		logout: (data, state, act, done) => {
+		logout: (state, data, act, done) => {
 			console.info('logging out');
 			auth.signOut();
 			act('user:loggedOut', done);

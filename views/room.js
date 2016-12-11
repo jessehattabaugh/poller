@@ -3,6 +3,6 @@ const header = require('../components/header');
 module.exports = (state, prev, act) => html`
     <main>
          ${header(state, act)}
-        <h2>${state.params.room}</h2>
+        <h2>${state.location.params.room}</h2>
     </main>
 `;

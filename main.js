@@ -16,7 +16,7 @@ app.model({
 		room: ''
 	},
 	reducers: {
-		'inputRoom': (data, state) => ({
+		'inputRoom': (state, data) => ({
 			room: data
 		})
 	}
@@ -24,9 +24,9 @@ app.model({
 
 app.model(require('./models/user'));
 
-app.router('/:room', (route) => [
-	route('/', require('./views/home')),
-	route(':room', require('./views/room'))
+app.router('/:room', [
+	['/', require('./views/home')],
+	['/:room', require('./views/room')]
 ]);
 
 const tree = app.start();

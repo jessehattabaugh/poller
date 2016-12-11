@@ -29,6 +29,11 @@ module.exports = {
 				act('user:loggedOut', done);
 			  console.error(err);
 			});
+		},
+		logout: (data, state, act, done) => {
+			console.info('logging out');
+			auth.signOut();
+			act('user:loggedOut', done);
 		}
 	},
 	subscriptions: [

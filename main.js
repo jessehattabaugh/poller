@@ -13,20 +13,20 @@ const app = choo();
 
 app.model({
 	state: {
-		roomName: ''
+		room: ''
 	},
 	reducers: {
-		'inputRoomName': (data, state) => ({
-			roomName: data
+		'inputRoom': (data, state) => ({
+			room: data
 		})
 	}
 });
 
 app.model(require('./models/user'));
 
-app.router('/', (route) => [
+app.router('/:room', (route) => [
 	route('/', require('./views/home')),
-	route('/:roomName', require('./views/room'))
+	route(':room', require('./views/room'))
 ]);
 
 const tree = app.start();

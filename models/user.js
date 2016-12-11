@@ -34,11 +34,13 @@ module.exports = {
 	subscriptions: [
 		(act, done) => auth.onAuthStateChanged(user => {
 			if (user) {
+				console.info('logged in');
 				act('user:loggedIn', {
 					name: user.displayName,
 					uid: user.uid
 				}, done);
 			} else {
+				console.info('logged out');
 				act('user:loggedOut', done);
 			}
 		})

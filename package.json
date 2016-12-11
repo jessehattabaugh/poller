@@ -1,0 +1,29 @@
+{
+  "name": "poller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "watchify main.js -o public/index.js --debug &",
+    "start": "firebase serve --port $PORT --host $IP",
+    "predeploy": "browserify main.js -o public/index.js",
+    "deploy": "firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessehattabaugh/poller.git"
+  },
+  "author": "Jesse Hattabaugh <arkanciscan@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jessehattabaugh/poller/issues"
+  },
+  "homepage": "https://github.com/jessehattabaugh/poller#readme",
+  "devDependencies": {
+    "choo": "^3.3.0",
+    "firebase": "^3.6.3",
+    "firebase-tools": "^3.2.0",
+    "watchify": "^3.7.0"
+  }
+}
